@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/elves/fix-for-0.11/util"
+	"github.com/elves/upgrade-scripts-for-0.11/util"
 )
 
 // Parser maintains some mutable states of parsing.

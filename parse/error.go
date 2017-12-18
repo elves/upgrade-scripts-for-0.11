@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/elves/fix-for-0.11/util"
+	"github.com/elves/upgrade-scripts-for-0.11/util"
 )
 
 // ErrorEntry represents one parse error.
