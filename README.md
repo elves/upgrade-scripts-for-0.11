@@ -27,6 +27,17 @@ This tool can be invoked in one of two ways:
 
 *   Without arguments, it reads stdin and writes stdout.
 
-*   With filename arguments, it rewrites each given file.
+*   With filename arguments, it rewrites each given file. For instance, to
+    upgrade all scripts in `~/.elvish`:
+
+		```elvish
+		upgrade-scripts-for-0.11 ~/.elvish/**.elv
+		```
+
+		Ignore warnings about skipping directories if you happen to have
+    directories whose names end in `.elv`.
 
 It does not accept any flags.
+
+Note that this tool is **not** idempotent. For instance, upgrading the already
+upgraded `$x~` syntax will make it `$x''~`.
