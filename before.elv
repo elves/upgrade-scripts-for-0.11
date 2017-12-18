@@ -1,4 +1,5 @@
 echo $&x
+echo [$&x]
 echo $a:&b
 echo $a:b:&c
 '&x' = { }

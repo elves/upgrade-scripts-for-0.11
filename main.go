@@ -79,7 +79,7 @@ func fixNode(n parse.Node, w io.Writer) {
 			// $x~
 			w.Write([]byte("$" + convert(n.Value)))
 		} else {
-			w.Write([]byte(n.SourceText()))
+			fixNodeDefault(n, w)
 		}
 	case *parse.Assignment:
 		// '&x'={ } echo
@@ -130,13 +130,17 @@ func fixNode(n parse.Node, w io.Writer) {
 			fixNode(child, w)
 		}
 	default:
-		if len(n.Children()) == 0 {
-			text := n.SourceText()
-			w.Write([]byte(text))
-		} else {
-			for _, child := range n.Children() {
-				fixNode(child, w)
-			}
+		fixNodeDefault(n, w)
+	}
+}
+
+func fixNodeDefault(n parse.Node, w io.Writer) {
+	if len(n.Children()) == 0 {
+		text := n.SourceText()
+		w.Write([]byte(text))
+	} else {
+		for _, child := range n.Children() {
+			fixNode(child, w)
 		}
 	}
 }
