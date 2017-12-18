@@ -8,8 +8,7 @@ This tool accodomates one change introduced in the 0.11 release: variable name f
 Before:
 
 ```
-'&x' = { echo x }
-# equivalent to "fn x { echo x }"
+'&x' = { echo x } # equivalent to "fn x { echo x }"
 echo $&x
 ```
 
