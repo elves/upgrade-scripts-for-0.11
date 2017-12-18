@@ -158,7 +158,7 @@ func convert(old string) string {
 	}
 	qname := ns + name
 	if strings.ContainsRune(qname, '&') {
-		fmt.Fprintf(os.Stderr, "Warning: rewritten variable $%s still contains &", qname)
+		fmt.Fprintf(os.Stderr, "Warning: rewritten variable $%s still contains &\n", qname)
 	}
 	return qname
 }

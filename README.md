@@ -31,10 +31,12 @@ to
 echo $x''~2
 ```
 
+See `before.elv` and `after.elv` for an example.
+
 Also, `&` is now forbidden in variable names. If a variable contains `&` after
 rewriting, a warning is printed.
 
-It does not address other compatibility breaks.
+This tool does not address other compatibility breaks.
 
 ## Invocation
 
