@@ -3,38 +3,21 @@
 
 ## Scope
 
-This tool accodomates one change introduced in the 0.11 release: variable name for functions used to be prefixed with `&`, but are now suffixed with `~`.
+This tool accodomates one change introduced in the 0.11 release: variable name for functions used to be prefixed with `&`, but are now suffixed with `~`:
 
-Before:
+*   Variable references are changed: `$a:&x` ⟹ `$a:x~`;
 
-```
-'&x' = { echo x } # equivalent to "fn x { echo x }"
-echo $&x
-```
+*   Assignments are changed: `'&x' = { }` ⟹ `x~ = { }` (quoting is no longer
+    required, since `~` is a valid bareword if it does not appear at the
+    beginning of a word;
 
-After:
-
-```
-x~ = { echo x }
-echo $x~
-```
-
-Since `~` is now allowed as part of variable name, it also fixes code like
-
-```
-echo $x~2
-```
-
-to
-
-```
-echo $x''~2
-```
+*   Use of `~` in compound nodes get a preceding `''` so that it will not be
+    parsed as part of a previous variable: `$x~foo` ⟹ `$x''~foo`.
 
 See `before.elv` and `after.elv` for an example.
 
-Also, `&` is now forbidden in variable names. If a variable contains `&` after
-rewriting, a warning is printed.
+The rune `&` is now forbidden in variable names. If a variable contains `&`
+after rewriting, a warning is printed.
 
 This tool does not address other compatibility breaks.
 
