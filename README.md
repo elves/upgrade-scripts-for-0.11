@@ -30,11 +30,11 @@ This tool can be invoked in one of two ways:
 *   With filename arguments, it rewrites each given file. For instance, to
     upgrade all scripts in `~/.elvish`:
 
-		```elvish
-		upgrade-scripts-for-0.11 ~/.elvish/**.elv
-		```
+    ```elvish
+    upgrade-scripts-for-0.11 ~/.elvish/**.elv
+    ```
 
-		Ignore warnings about skipping directories if you happen to have
+    Ignore warnings about skipping directories if you happen to have
     directories whose names end in `.elv`.
 
 It does not accept any flags.
